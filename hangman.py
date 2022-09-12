@@ -7,7 +7,7 @@ win_if_true = True
 letter_bank = [chr(ord('a') + x) for x in range(26)]  # list of all 26 valid letters, lowercase only
 letters_not_found = []  # will hold all letters guessed but not present in the secret string
 
-secret_string = input("Enter the secret word or phrase: ")  # inputs the secret string
+secret_string = input("Enter the secret word or phrase: ").lower()  # inputs the secret string
 os.system('cls||clear')  # Clear the screen to hide the secret
 
 secret = list(secret_string)  # divides secret_string into a list of letters
@@ -30,7 +30,9 @@ display = ["_" if x.lower() in letter_bank else x for x in secret]
 
 # While puzzle is not solved
 while "_" in display: # <-- add the correct condition
+    print ("*************************")
     print(*display)  # Prints the current display of the puzzle.  * operator unpacks a list into arguments. 
+    print("*************************")
     # Print the list of letters not found, if there are any
     if len(letters_not_found) != 0:
         print("Letters not found: ", *letters_not_found)
