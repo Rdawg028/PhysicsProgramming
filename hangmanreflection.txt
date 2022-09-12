@@ -1,0 +1,16 @@
+Hangman Assignment Reflection
+Rowan Verdouw
+
+1. This project wasn't too bad. I think it was just challenging
+enough for an intro project but to also give us a good idea
+of how python works. There isn't anything I'm specifically
+proud of for this project.
+
+2. I used this website for finding some examples of certain functions
+I thought could be useful https://www.geeksforgeeks.org/python-string-isalpha-method/.
+Daniel and I had talked during class about the project but we worked individually outside
+of class. 
+
+3. I think I deserve an A. The project works and I don't think there is any issues.
+At least I didn't see any. The only special thing I added was the formatting changes that made it 
+more clear in the console. 
