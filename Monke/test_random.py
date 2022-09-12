@@ -1,5 +1,7 @@
 import pygame
 from pygame.locals import *
+import random
+from pygame.math import Vector2, Vector3
 
 # Constants
 BG_COLOR = (0,0,0)
@@ -22,6 +24,14 @@ window = pygame.display.set_mode(flags=FULLSCREEN)
 width = window.get_width()
 height = window.get_height()
 
+RADIUS = 100
+COLOR = Vector3(0, 255, 255)
+
+coords = []
+for i in range(10):
+    coords.append(Vector2(RADIUS + random.randrange(width - 2 * RADIUS), 
+                   RADIUS + random.randrange(height - 2 * RADIUS)))
+
 # fontpath = pygame.font.match_font("baskervilleoldface")
 font = pygame.font.SysFont("baskervilleoldface", round(width / 25))
 
@@ -42,12 +52,12 @@ while running:
             running = False
     
     # DRAW
-    rect_width = height
-    rect_height = (height * 2/3)
-    pygame.draw.rect(window, (255, 255, 255), 
-    ((width - rect_width) / 2, (height - rect_height)/2, rect_width, rect_height))
-    pygame.draw.circle(window, (255, 0, 0), (width / 2, height / 2), height * 2/9)
-    text = font.render("Konnichi-wa!", True, (255, 255, 0))
-    window.blit(text, (width - text.get_width()) / 2, (height - text.get_height()) / 2)
+    mouse_pos = Vector2(pygame.mouse.get_pos())
+    for center in coords:
+        if (center - mouse_pos).magnitude() < RADIUS: #mouse is inside circle
+            color = (255, 255, 0)
+        else:
+            color = COLOR
+        pygame.draw.circle(window, color, center, RADIUS)
     
 
